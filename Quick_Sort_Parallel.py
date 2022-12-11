@@ -28,7 +28,8 @@ def quicksort(array):
 
         # k is the number of the letter in the name we are comparing
         k = 0
-
+        print("item", "item", item, "array", array, k)
+        print("pivot", pivot[k], k)
         while letter_list.index(item[k].lower()) == letter_list.index(pivot[k].lower()):
             k = k + 1
             if k == len(item)-1 or len(pivot)-1:
@@ -80,7 +81,7 @@ def parallel(data):
         # since we're only interested in pairs of partitions to merge.
         extra = data.pop() if len(data) % 2 == 1 else None
         data = [(data[i], data[i + 1]) for i in range(0, len(data), 2)]
-        data = pool.map(merge, data) + ([extra] if extra else [])
+        data = pool.map(quicksort(data), data) + ([extra] if extra else [])
     return data[0]
 
 

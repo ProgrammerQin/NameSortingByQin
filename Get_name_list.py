@@ -1,7 +1,7 @@
 # opening the file in read mode
 
-# name_file = open("names.txt", "r")
-name_file = open("names_short.txt", "r")
+name_file = open("names.txt", "r")
+# name_file = open("names_short.txt", "r")
 
 # reading the file
 name_data = name_file.read()

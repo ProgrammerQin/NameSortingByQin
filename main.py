@@ -4,8 +4,6 @@ from Bubble_Sort import bubblesort
 from Merge_Sort import mergeSort
 from Quick_Sort_Name import quicksort
 
-name_list = ["camqwe", "asd", "fasd", "dasd", "hieqwe", "bsdf"]
-
 start = time.time()
 
 # To sort last time alphabetically

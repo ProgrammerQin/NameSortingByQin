@@ -21,7 +21,6 @@ def mergeSort(name_list):
         # Until we reach either end of either L or M, pick larger among
         # elements L and M and place them in the correct position at A[p..r]
         while i < len(L) and j < len(M):
-            letter_index = 0
 
             # if M[j] == ['']:
             #     name_list[k] = L[i]
@@ -34,7 +33,7 @@ def mergeSort(name_list):
             #     j = j + 1
             #     k = k + 1
             #     break
-
+            letter_index = 0
             while letter_list.index(L[i][letter_index].lower()) == letter_list.index(M[j][letter_index].lower()):
                 letter_index = letter_index + 1
 
@@ -42,15 +41,15 @@ def mergeSort(name_list):
                     name_list[k] = L[i]
                     print("Li filled", L[i], name_list)
                     i = i + 1
-                    k = k + 1
-                    break
+#                    k = k + 1
+#                    break
 
                 if letter_index == len(M[j]):
                     name_list[k] = M[j]
                     print("Mj filled", M[j], name_list)
                     j = j + 1
-                    k = k + 1
-                    break
+#                    k = k + 1
+#                    break
 
             if letter_list.index(L[i][letter_index].lower()) < letter_list.index(M[j][letter_index].lower()):
                 print(L[i], M[j], k, name_list)
