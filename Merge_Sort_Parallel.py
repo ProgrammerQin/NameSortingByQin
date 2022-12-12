@@ -18,22 +18,27 @@ def merge(*args):
 
         letter_index = 0
         while letter_list.index(left[left_index][letter_index].lower()) == letter_list.index(right[right_index][letter_index].lower()):
+#            print(left[left_index], left[left_index][letter_index], right[right_index], right[right_index][letter_index], "Letter_index + 1", letter_index)
             letter_index = letter_index + 1
 
             if letter_index == len(left[left_index])-1:
+#            if letter_index == len(left[left_index]):
                 merged.append(left[left_index])
                 if left_index < left_length:
                     left_index += 1
-                    break
-                break
+#                    break
+                letter_index = 0
+                # break
 
             if letter_index == len(right[right_index])-1:
+#           if letter_index == len(right[right_index]):
                 merged.append(right[right_index])
-                right_index += 1
+#                right_index += 1
                 if right_index < right_length:
                     right_index += 1
-                    break
-                break
+#                    break
+                letter_index = 0
+#                break
 
         if left_index >= left_length or right_index >= right_length:
             break
@@ -43,15 +48,21 @@ def merge(*args):
             merged.append(left[left_index])
             left_index += 1
 #            break
+            letter_index = 0
+#            print(left_index, "////", right_index, letter_index)
 
         if left_index >= left_length or right_index >= right_length:
             break
- #       print(left[left_index], "///", right[right_index], letter_index)
+
+#        print(left[left_index], len(left[left_index]), "///", right[right_index], len(right[right_index]), right_length, letter_index)
 
         if letter_list.index(left[left_index][letter_index].lower()) > letter_list.index(right[right_index][letter_index].lower()):
             merged.append(right[right_index])
             right_index += 1
+#            letter_index = 0
 #            break
+
+#        print("//")
 
     if left_index == left_length:
         merged.extend(right[right_index:])
@@ -59,7 +70,7 @@ def merge(*args):
     else:
         merged.extend(left[left_index:])
 
-    print("merged", merged)
+#    print("merged", merged)
     return merged
 
 def merge_sort(data):
@@ -105,5 +116,6 @@ if __name__ == "__main__":
         start = time.time()
         data_sorted = sort(data_unsorted)
         end = time.time() - start
-        print(sort.__name__, end, sorted(data_unsorted) == data_sorted)
         print(data_sorted)
+        print(sort.__name__, end, sorted(data_unsorted) == data_sorted)
+
