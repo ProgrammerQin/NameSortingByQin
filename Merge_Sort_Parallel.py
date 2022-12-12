@@ -37,18 +37,21 @@ def merge(*args):
 
         if left_index >= left_length or right_index >= right_length:
             break
+#        print(left[left_index], "//", right[right_index], letter_index)
 
         if letter_list.index(left[left_index][letter_index].lower()) < letter_list.index(right[right_index][letter_index].lower()):
             merged.append(left[left_index])
             left_index += 1
-#        print(left[left_index], "//", right[right_index], letter_index)
+#            break
+
         if left_index >= left_length or right_index >= right_length:
             break
-        print(left[left_index], "///", right[right_index], letter_index)
+ #       print(left[left_index], "///", right[right_index], letter_index)
 
         if letter_list.index(left[left_index][letter_index].lower()) > letter_list.index(right[right_index][letter_index].lower()):
             merged.append(right[right_index])
             right_index += 1
+#            break
 
     if left_index == left_length:
         merged.extend(right[right_index:])
