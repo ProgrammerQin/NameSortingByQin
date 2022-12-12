@@ -13,7 +13,7 @@ if __name__ == "__main__":
     name_list = [" ".join(k.split(" ")[::-1]) for k in name_list]
 
 # Compare
-# I implement 3 different sequential techniques for name sorting
+# I implement 4 different sequential techniques for name sorting
     if technique == 1:
         name_list = bubblesort(name_list)
     if technique == 2:
