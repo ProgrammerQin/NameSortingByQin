@@ -7,6 +7,7 @@ from Get_name_list import name_list
 
 letter_list = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
+
 def merge(*args):
     # Support explicit left/right args, as well as a two-item
     # tuple which works more cleanly with multiprocessing.
@@ -22,23 +23,18 @@ def merge(*args):
             letter_index = letter_index + 1
 
             if letter_index == len(left[left_index])-1:
-#            if letter_index == len(left[left_index]):
                 merged.append(left[left_index])
-                if left_index < left_length:
-                    left_index += 1
-#                    break
+                left_index += 1
                 letter_index = 0
-                # break
-
+#                print("////", left[left_index], left[left_index][letter_index], right[right_index], right[right_index][letter_index], "Letter_index + 1", letter_index)
+                if left_index >= left_length:
+                    break
             if letter_index == len(right[right_index])-1:
-#           if letter_index == len(right[right_index]):
                 merged.append(right[right_index])
-#                right_index += 1
-                if right_index < right_length:
-                    right_index += 1
-#                    break
+                right_index += 1
                 letter_index = 0
-#                break
+                if right_index >= right_length:
+                    break
 
         if left_index >= left_length or right_index >= right_length:
             break
@@ -47,7 +43,6 @@ def merge(*args):
         if letter_list.index(left[left_index][letter_index].lower()) < letter_list.index(right[right_index][letter_index].lower()):
             merged.append(left[left_index])
             left_index += 1
-#            break
             letter_index = 0
 #            print(left_index, "////", right_index, letter_index)
 
@@ -62,7 +57,6 @@ def merge(*args):
 #            letter_index = 0
 #            break
 
-#        print("//")
 
     if left_index == left_length:
         merged.extend(right[right_index:])
@@ -72,6 +66,7 @@ def merge(*args):
 
 #    print("merged", merged)
     return merged
+
 
 def merge_sort(data):
     length = len(data)
@@ -106,16 +101,10 @@ def merge_sort_parallel(data):
     return data[0]
 
 
-if __name__ == "__main__":
-    size = int(sys.argv[-1]) if sys.argv[-1].isdigit() else 1000
-#    data_unsorted = ["cvsdvds", "dssa", "asdasd", "wbasd", "edfgasd"]
+# if __name__ == "__main__":
+#   size = int(sys.argv[-1]) if sys.argv[-1].isdigit() else 1000
+#    data_unsorted = ["cvsdvds", "dssa", "dssa", "asdasd", "wbasd", "edfgasd"]
 #    data_unsorted = ["c", "d", "e", "a", "f", "g", "h"]
-    data_unsorted = name_list
-
-    for sort in merge_sort, merge_sort_parallel:
-        start = time.time()
-        data_sorted = sort(data_unsorted)
-        end = time.time() - start
-        print(data_sorted)
-        print(sort.__name__, end, sorted(data_unsorted) == data_sorted)
-
+#    data_unsorted = name_list
+#    data_sorted = merge_sort_parallel(data_unsorted)
+#    print(merge_sort_parallel(data_unsorted))

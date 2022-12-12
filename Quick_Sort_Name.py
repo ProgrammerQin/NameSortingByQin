@@ -17,7 +17,7 @@ def quicksort(array):
 
     # Select your `pivot` element randomly
     pivot = array[randint(0, len(array) - 1)]
-    print(pivot)
+#    print(pivot)
     for item in array:
         # Elements that are smaller than the `pivot` go to the `low` list
         # Elements that are larger than `pivot` go to the `high` list
@@ -25,7 +25,7 @@ def quicksort(array):
 
         # k is the number of the letter in the name we are comparing
         k = 0
-        print("item", item, "Pivot", pivot, "Array", array)
+#        print("item", item, "Pivot", pivot, "Array", array)
 
         while letter_list.index(item[k].lower()) == letter_list.index(pivot[k].lower()):
             k = k + 1
@@ -35,11 +35,11 @@ def quicksort(array):
 
         if letter_list.index(item[k].lower()) > letter_list.index(pivot[k].lower()):
             high.append(item)
-            print("1")
+#            print("1")
 
         if letter_list.index(item[k].lower()) < letter_list.index(pivot[k].lower()):
             low.append(item)
-            print("2")
+#            print("2")
 
 
 #        if item < pivot:
