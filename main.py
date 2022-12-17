@@ -31,10 +31,11 @@ if __name__ == "__main__":
 
     end = time.time()
     Executation_time = float(end - start)*1000
+    print(name_list)
     print("Name Sorting Time (ms) Is : ", "%.2f" % Executation_time)
 
 # Sorting Result:
-# Sequential Bubble Sort: Sorting Time (ms) is :  186248.11
-# Sequential Quick Sort: Sorting TIme (ms) is:  127397.48
-# Sequential Merge Sort: Sorting TIme (ms) is:  8895.89
-# Parallel Merge Sort: Sorting Timer (ms) is: 7646.39
+# Sequential Bubble Sort: Sorting Time (ms) is :  18648.11
+# Sequential Quick Sort: Sorting TIme (ms) is:  12397.48
+# Sequential Merge Sort: Sorting TIme (ms) is:  88.89
+# Parallel Merge Sort: Sorting Timer (ms) is: 74.39
